@@ -1,2 +1,2 @@
-issue-tracker-ui-marionette-coffee
-==================================
+# Issue Tracker User Interface
+**Backbone.Marionette Stack** *authored in CoffeeScript*
