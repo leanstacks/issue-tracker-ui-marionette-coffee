@@ -1,0 +1,28 @@
+/* Project Styles */
+/* Use Bootstrap styles first and override only if necessary. */
+
+/* body padding for http://getbootstrap.com/components/#navbar-fixed-top */
+body {
+	padding-top: 70px;
+}
+
+footer {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	margin-top: 100px;
+	color: #777;
+	text-align: center;
+	border-top: 1px solid #e5e5e5;
+}
+
+.panel-pre {
+	padding: 15px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+.actionbar {
+	margin-bottom: 20px;
+}
