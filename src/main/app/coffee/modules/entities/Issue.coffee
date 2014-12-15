@@ -10,13 +10,13 @@ IssueTrackerApp.module 'Entities', (Entities, IssueTrackerApp, Backbone, Marione
 
     validate: (attrs, options) ->
       errors = {}
-      if not attrs.title?
+      if !attrs.title
         errors.title = 'Title is required.'
-      if not attrs.description?
+      if !attrs.description
         errors.description = 'Description is required.'
-      if not attrs.type?
+      if !attrs.type
         errors.type = 'Type is required.'
-      if not attrs.priority?
+      if !attrs.priority
         errors.priority = 'Priority is required.'
       if not _.isEmpty errors
         errors

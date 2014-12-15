@@ -4,7 +4,7 @@ Backbone.Marionette.Renderer.render = (template, data) ->
 
 
 # Create the Application
-window.IssueTrackerApp = new Backbone.Marionette.Application()
+window.IssueTrackerApp = new Backbone.Marionette.Application
 
 
 # Navigate to a route
@@ -15,7 +15,7 @@ IssueTrackerApp.navigate = (route, options) ->
 
 
 # Retrieve the current route
-IssueTrackerApp.getCurrentRoute = () ->
+IssueTrackerApp.getCurrentRoute = ->
   Backbone.history.fragment
 
 

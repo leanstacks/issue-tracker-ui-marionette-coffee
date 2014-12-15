@@ -2,7 +2,7 @@ IssueTrackerApp.module 'Header', (Header, IssueTrackerApp, Backbone, Marionette,
 
   class Header.NavBarView extends Backbone.Marionette.ItemView
 
-    template: 'navbar',
+    template: 'navbar'
 
     ui:
       navigation: '.js-nav'

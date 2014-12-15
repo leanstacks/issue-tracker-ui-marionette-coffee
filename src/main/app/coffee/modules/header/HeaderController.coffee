@@ -5,12 +5,12 @@ IssueTrackerApp.module 'Header', (Header, IssueTrackerApp, Backbone, Marionette,
 
     show: ->
       logger.debug "HeaderController.show"
-      navBarView = new Header.NavBarView()
+      navBarView = new Header.NavBarView
       IssueTrackerApp.headerRegion.show navBarView
 
 
   # Create an instance
-  controller = new HeaderController()
+  controller = new HeaderController
 
 
   # When the module is initialized...

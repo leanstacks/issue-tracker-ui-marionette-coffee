@@ -5,12 +5,12 @@ IssueTrackerApp.module 'Footer', (Footer, IssueTrackerApp, Backbone, Marionette,
 
     show: ->
       logger.debug "FooterController.show"
-      footerView = new Footer.FooterView()
+      footerView = new Footer.FooterView
       IssueTrackerApp.footerRegion.show footerView
 
 
   # Create an instance
-  controller = new FooterController()
+  controller = new FooterController
 
 
   # When the module is initialized...
