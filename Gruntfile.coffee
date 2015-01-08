@@ -11,6 +11,15 @@ module.exports = (grunt) ->
       compile:
         files: 'dist/assets/app/js/app-<%= pkg.version %>.js': [ 'src/main/app/coffee/Application.coffee',
           'src/main/app/coffee/**/*.coffee' ]
+    compress:
+      main:
+        options:
+          archive: 'dist/issuetracker.tar.gz'
+        files: [
+          expand: true
+          cwd: 'dist/'
+          src: ['**']
+        ]
     connect:
       server:
         options:
@@ -59,6 +68,7 @@ module.exports = (grunt) ->
   # Load Plugins
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-compress'
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-jst'
@@ -67,5 +77,5 @@ module.exports = (grunt) ->
 
   # Define Tasks
   grunt.registerTask 'default', [ 'clean', 'copy', 'jst', 'coffee', 'uglify' ]
-  grunt.registerTask 'dist', [ 'clean', 'copy', 'jst', 'coffee', 'uglify' ]
+  grunt.registerTask 'dist', [ 'default', 'compress' ]
   grunt.registerTask 'run', [ 'default', 'connect:server', 'watch' ]
