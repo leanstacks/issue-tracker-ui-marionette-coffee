@@ -10,8 +10,12 @@ sourcemaps = require 'gulp-sourcemaps'
 minifycss = require 'gulp-minify-css'
 server = require 'gulp-webserver'
 del = require 'del'
+sequence = require 'run-sequence'
+tar = require 'gulp-tar'
+gzip = require 'gulp-gzip'
 
 config =
+  name: 'issuetracker'
   version: '1.0.0'
 
 gulp.task 'clean', (cb) ->
@@ -58,8 +62,17 @@ gulp.task 'css', ->
     .pipe(minifycss())
     .pipe(gulp.dest('dist/assets/app/css'))
 
+gulp.task 'tar', ->
+  gulp.src('dist/**')
+    .pipe(tar("#{config.name}.tar"))
+    .pipe(gzip())
+    .pipe(gulp.dest('dist'))
+
 gulp.task 'default', ['clean'], ->
   gulp.start 'lib', 'templates', 'scripts', 'html', 'css'
+
+gulp.task 'dist', ['clean'], ->
+  sequence ['lib', 'templates', 'scripts', 'html', 'css'], 'tar'
 
 gulp.task 'run', ['lib', 'templates', 'scripts', 'html', 'css'], ->
   gulp.watch 'src/main/app/templates/**/*.html', ['templates']
